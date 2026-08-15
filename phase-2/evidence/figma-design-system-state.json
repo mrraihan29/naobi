@@ -1,0 +1,46 @@
+{
+  "runId": "raihan-os-phase2-2026-08-15",
+  "fileKey": "7mhEexWxjchq0gEOrajYiy",
+  "fileUrl": "https://www.figma.com/design/7mhEexWxjchq0gEOrajYiy",
+  "phase": "phase2",
+  "step": "P2.a-blocked-by-starter-mcp-limit",
+  "architecture": "starter-grouped-signal-profiles",
+  "entities": {
+    "collections": {
+      "primitiveColors": "VariableCollectionId:4:2",
+      "semanticColors": "VariableCollectionId:4:3",
+      "dimensions": "VariableCollectionId:4:4",
+      "motion": "VariableCollectionId:4:5",
+      "typePrimitives": "VariableCollectionId:4:6"
+    },
+    "variables": {},
+    "pages": {},
+    "components": {},
+    "screens": {}
+  },
+  "pendingValidations": [
+    "phase2-foundations-pages",
+    "phase3-critical-components",
+    "phase4-flows-and-visual-qa"
+  ],
+  "completedSteps": [
+    "phase0",
+    "P1.a",
+    "P1.b",
+    "P1.c",
+    "P1.d",
+    "P1.e",
+    "P1.f",
+    "P1.g",
+    "P1.h"
+  ],
+  "verifiedCounts": {
+    "collections": 5,
+    "variables": 53,
+    "semanticAliasAssignments": 9,
+    "brokenAliases": 0,
+    "textStyles": 7,
+    "effectStyles": 0
+  },
+  "blocker": "Figma Starter MCP call allowance reached after plan mode and page limits were observed. Normative documents continue outside Figma."
+}

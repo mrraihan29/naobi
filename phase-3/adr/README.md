@@ -1,0 +1,13 @@
+# Phase 3 Architecture Decision Records
+
+This directory records material implementation and delivery decisions made
+after the Phase 2 lock. It supplements, but does not silently modify, the
+accepted Phase 2 ADR set.
+
+| ADR | Title | Status | Date |
+|---|---|---|---|
+| [0001](0001-adopt-controlled-checkpointed-git-delivery.md) | Adopt controlled checkpointed Git delivery | Accepted | 2026-08-15 |
+
+Use a new ADR for a material change to the implementation architecture,
+security boundary, deployment model, provider integration, or quality contract.
+Editorial clarification and ordinary task tracking do not require an ADR.

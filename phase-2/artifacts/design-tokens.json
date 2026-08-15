@@ -1,0 +1,113 @@
+{
+  "$schema": "raihan-os-design-tokens/1.0",
+  "metadata": {
+    "status": "accepted-gate-2.5",
+    "source": "phase-2 documents 06, 21, 23, and 26",
+    "canonicalLanguage": "en",
+    "notes": [
+      "Values are implementation-neutral.",
+      "Semantic status colors are intentionally unassigned pending browser contrast testing.",
+      "Only one signal profile is active per session."
+    ]
+  },
+  "color": {
+    "primitive": {
+      "chassis": {
+        "void": "#070A0B",
+        "carbon": "#111618",
+        "alloy": "#263033"
+      },
+      "text": {
+        "instrument": "#D8E2DC",
+        "muted": "#81908A"
+      },
+      "signal": {
+        "phosphor": "#A5E36D",
+        "amber": "#F0A34A",
+        "ice": "#63C7C9"
+      }
+    },
+    "semantic": {
+      "canvas.root": "{color.primitive.chassis.void}",
+      "surface.chassis": "{color.primitive.chassis.carbon}",
+      "surface.raised": "{color.primitive.chassis.alloy}",
+      "text.primary": "{color.primitive.text.instrument}",
+      "text.muted": "{color.primitive.text.muted}",
+      "border.default": "{color.primitive.chassis.alloy}"
+    },
+    "profile": {
+      "phosphor.active": "{color.primitive.signal.phosphor}",
+      "amber.active": "{color.primitive.signal.amber}",
+      "ice.active": "{color.primitive.signal.ice}"
+    }
+  },
+  "typography": {
+    "families": {
+      "system": "Recursive",
+      "editorial": "Source Serif 4"
+    },
+    "roles": {
+      "systemDisplay": { "family": "Recursive", "style": "Sans Linear Bold", "fontSize": 40, "lineHeight": 44 },
+      "pageTitle": { "family": "Recursive", "style": "Sans Linear SemiBold", "fontSize": 32, "lineHeight": 38 },
+      "sectionHeading": { "family": "Recursive", "style": "Sans Linear SemiBold", "fontSize": 24, "lineHeight": 30 },
+      "interfaceBody": { "family": "Recursive", "style": "Sans Linear", "fontSize": 16, "lineHeight": 25 },
+      "utilityData": { "family": "Recursive", "style": "Mono Linear Medium", "fontSize": 13, "lineHeight": 18 },
+      "microLabel": { "family": "Recursive", "style": "Mono Linear SemiBold", "fontSize": 12, "lineHeight": 16 },
+      "editorialReading": { "family": "Source Serif 4", "style": "Regular", "fontSize": 18, "lineHeight": 30 }
+    },
+    "readingMeasureCharacters": { "minimum": 62, "maximum": 76 },
+    "casualAxis": "disabled"
+  },
+  "spacing": {
+    "4": 4,
+    "8": 8,
+    "12": 12,
+    "16": 16,
+    "24": 24,
+    "32": 32,
+    "48": 48,
+    "64": 64
+  },
+  "radius": {
+    "structural": 2,
+    "control": 6
+  },
+  "stroke": {
+    "hairline": 1,
+    "iconDefault": 1.5
+  },
+  "layout": {
+    "desktopColumns": 12,
+    "nestedColumns": [4, 6],
+    "gutter": {
+      "fullConsole": 32,
+      "compactConsole": 24,
+      "mobile": 16
+    },
+    "breakpoints": {
+      "mobileMaximum": 767,
+      "simplifiedMinimum": 768,
+      "compactMinimum": 1024,
+      "fullConsoleMinimum": 1280
+    }
+  },
+  "motion": {
+    "feedback": { "minimumMs": 120, "maximumMs": 180 },
+    "control": { "minimumMs": 180, "maximumMs": 260 },
+    "environment": { "minimumMs": 320, "maximumMs": 480 },
+    "evidenceDepth": { "minimumMs": 280, "maximumMs": 420 },
+    "boot": { "minimumMs": 2000, "maximumMs": 2600 },
+    "reducedMotion": {
+      "boot": "skip",
+      "spatialTravel": "remove",
+      "nonessentialAnimation": "remove",
+      "replacement": "immediate-or-short-opacity"
+    }
+  },
+  "content": {
+    "evidenceDepthStates": ["Brief", "Method", "Evidence", "Artifact"],
+    "environments": ["Signal Lab", "Operations Ledger"],
+    "sharedDestinations": ["Journal", "Search", "About", "Collaboration", "Licenses", "System Map"],
+    "unassignedValues": ["semantic.success", "semantic.warning", "semantic.error", "semantic.confidential", "semantic.inProgress"]
+  }
+}
