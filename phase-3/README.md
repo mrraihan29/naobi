@@ -126,6 +126,15 @@ locked until Raihan accepts the 3.1B hold evidence.
 
 ## Change control
 
+## Checkpoint 3.1C amendment
+
+Checkpoint 3.1B is accepted. The active checkpoint is now 3.1C — typed content
+and interface contracts. Its governing records are [Document 06](06-checkpoint-3.1c-content-and-interface-contracts.md)
+and [ADR-0003](adr/0003-adopt-typed-content-contracts.md). It may establish
+content validation, safe placeholders, canonical static routes, and configuration
+boundaries. It may not start Central OS visuals, terminal/search behavior, or any
+unvalidated research publication.
+
 This folder inherits the Phase 2 lock. A materially different framework,
 provider boundary, deployment model, privacy posture, or quality obligation
 requires impact analysis and a superseding ADR before implementation relies on

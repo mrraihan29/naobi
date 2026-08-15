@@ -1,4 +1,5 @@
 import node from '@astrojs/node';
+import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
 import { defineConfig, envField } from 'astro/config';
 
@@ -8,7 +9,7 @@ export default defineConfig({
   adapter: node({
     mode: 'standalone',
   }),
-  integrations: [react()],
+  integrations: [mdx(), react()],
   session: false,
   env: {
     schema: {
