@@ -100,6 +100,17 @@ green result:
    a mutable nested dependency. Local step actions are now prohibited; local
    reusable workflows are allowed only as direct files in `.github/workflows`,
    where the validator independently scans them.
+10. The first Linux CI run exposed Sharp's platform-specific
+    `@img/sharp-libvips-linux-x64` package as `LGPL-3.0-or-later`, while the
+    original workstation inventory reported a combined expression. A second
+    exception was added for the exact observed
+    `@img/sharp-libvips-linux-x64` package and exact LGPL expression; other
+    platform variants remain fail-closed. Notices, license text, and relinking
+    obligations remain explicit release requirements.
+11. Gitleaks Action 3.0.0 required `GITHUB_TOKEN` for pull-request scans. The
+    built-in token is now passed only to the pinned Gitleaks step, while the
+    workflow retains explicit read-only `contents` and `pull-requests`
+    permissions and persists no checkout credential.
 
 ## 6. Privacy and secret boundary
 
@@ -112,8 +123,9 @@ green result:
 
 ## 7. Remaining remote evidence
 
-- publish the branch and open a draft Checkpoint 3.1B PR;
-- observe `verify` and `secret-scan` jobs on GitHub Actions;
+- draft PR #2 is published; its first run identified the two cross-platform
+  issues above and the focused corrections are awaiting rerun;
+- observe corrected `verify` and `secret-scan` jobs on GitHub Actions;
 - investigate any platform-specific CI difference;
 - add the stable passing job names to the protected-main ruleset;
 - read back effective rules; and

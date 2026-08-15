@@ -116,9 +116,12 @@ incompatible peers, unreviewed dependency scripts, and packages inside the
 24-hour release cooldown unless an explicit exception is reviewed.
 
 Production licenses are allowlisted by SPDX expression. Sharp platform binaries
-have a narrow reviewed exception for `Apache-2.0 AND LGPL-3.0-or-later`.
-Applicable notices and obligations must be included when OCI artifacts are
-distributed. New or changed expressions fail the validator.
+have narrow reviewed exceptions for the combined
+`Apache-2.0 AND LGPL-3.0-or-later` expression and the exact Linux x64 libvips
+package reported as `LGPL-3.0-or-later`. Applicable notices, license text, and
+relinking obligations must be included when OCI artifacts are distributed.
+Other packages, platforms, or license expressions continue to fail the
+validator.
 
 ## 9. Definition of done
 
