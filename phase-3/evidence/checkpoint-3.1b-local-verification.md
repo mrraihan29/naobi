@@ -60,7 +60,7 @@ as universally permissive; release notices remain an OCI-delivery obligation.
 | Prettier | Passed: all matched files |
 | ESLint | Passed: zero warnings |
 | Astro diagnostics | 8 files; 0 errors, 0 warnings, 0 hints |
-| Vitest | 2 files; 6 tests passed |
+| Vitest | 2 files; 7 tests passed |
 | Astro production build | Passed; `/index.html` prerendered |
 | Output mode | Static default with Node standalone adapter |
 | Session runtime | Explicitly disabled |
@@ -96,6 +96,10 @@ green result:
 8. Pnpm 11 ignores non-registry policy in `.npmrc`. The ineffective
    `save-exact=true` file was removed and `saveExact: true` was placed in the
    authoritative workspace configuration.
+9. Change-aware security review found that a local composite action could hide
+   a mutable nested dependency. Local step actions are now prohibited; local
+   reusable workflows are allowed only as direct files in `.github/workflows`,
+   where the validator independently scans them.
 
 ## 6. Privacy and secret boundary
 

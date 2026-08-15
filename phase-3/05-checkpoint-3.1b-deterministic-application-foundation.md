@@ -102,8 +102,10 @@ requested until the authorized operational checkpoint.
 CI adds frozen-lock installation, high-severity production dependency audit,
 and full-history Gitleaks scanning. A structural YAML policy rejects write
 permissions, `pull_request_target`, mutable external action references, and
-Docker actions without a SHA-256 digest. Workflow permissions are read-only,
-job timeouts are bounded, PR concurrency cancels superseded safe runs, checkout
+Docker actions without a SHA-256 digest. Local step actions are prohibited;
+local reusable workflows must be direct files in `.github/workflows`, where
+they are scanned independently. Workflow permissions are read-only, job
+timeouts are bounded, PR concurrency cancels superseded safe runs, checkout
 credentials are not persisted, and third-party actions are pinned to full
 commit SHAs.
 

@@ -54,6 +54,18 @@ describe('workflow security policy', () => {
     );
   });
 
+  it('rejects local step actions but permits scanned local reusable workflows', () => {
+    expect(validateWorkflowPolicy(workflow('      - uses: ./.github/actions/build'))).toContain(
+      'workflow.yml: job verify step 2 uses: local actions are prohibited; local reusable workflows must be direct files in .github/workflows',
+    );
+
+    const reusableWorkflow = workflow('').replace(
+      'runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@' + sha,
+      'uses: ./.github/workflows/reusable.yml',
+    );
+    expect(validateWorkflowPolicy(reusableWorkflow)).toEqual([]);
+  });
+
   it('rejects pull_request_target and duplicate YAML keys', () => {
     expect(
       validateWorkflowPolicy(workflow('').replace('on: pull_request', 'on: pull_request_target')),

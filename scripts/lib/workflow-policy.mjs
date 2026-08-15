@@ -22,13 +22,18 @@ function validatePermissions(permissions, location) {
   return failures;
 }
 
-function validateUses(reference, location) {
+function validateUses(reference, location, { allowLocalReusableWorkflow = false } = {}) {
   if (typeof reference !== 'string') {
     return [`${location}: uses must be a static string`];
   }
 
   if (reference.startsWith('./')) {
-    return [];
+    if (allowLocalReusableWorkflow && /^\.\/\.github\/workflows\/[^/]+\.ya?ml$/u.test(reference)) {
+      return [];
+    }
+    return [
+      `${location}: local actions are prohibited; local reusable workflows must be direct files in .github/workflows`,
+    ];
   }
 
   if (reference.startsWith('docker://')) {
@@ -104,7 +109,11 @@ export function validateWorkflowPolicy(source, workflowPath = 'workflow.yml') {
       failures.push(...validatePermissions(job.permissions, jobLocation));
     }
     if (Object.hasOwn(job, 'uses')) {
-      failures.push(...validateUses(job.uses, `${jobLocation} uses`));
+      failures.push(
+        ...validateUses(job.uses, `${jobLocation} uses`, {
+          allowLocalReusableWorkflow: true,
+        }),
+      );
     }
 
     if (job.steps === undefined) {
