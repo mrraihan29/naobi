@@ -1,0 +1,13 @@
+packages:
+  - .
+
+engineStrict: true
+nodeVersion: 24.19.0
+minimumReleaseAge: 1440
+autoInstallPeers: false
+strictPeerDependencies: true
+strictDepBuilds: true
+
+allowBuilds:
+  esbuild: true
+  sharp: true

@@ -1,0 +1,10 @@
+.astro/
+coverage/
+dist/
+node_modules/
+phase-1/
+phase-2/
+phase-3/
+pnpm-lock.yaml
+**/*.md
+*.ps1

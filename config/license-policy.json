@@ -1,0 +1,21 @@
+{
+  "allowedLicenses": [
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "BlueOak-1.0.0",
+    "CC-BY-4.0",
+    "CC0-1.0",
+    "ISC",
+    "MIT",
+    "MPL-2.0",
+    "Python-2.0"
+  ],
+  "reviewedExceptions": [
+    {
+      "packagePattern": "^@img/sharp-",
+      "license": "Apache-2.0 AND LGPL-3.0-or-later",
+      "rationale": "Platform binary distributed with Sharp; preserve applicable notices and LGPL obligations in deployable artifacts."
+    }
+  ]
+}
