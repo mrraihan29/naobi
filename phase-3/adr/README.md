@@ -7,6 +7,7 @@ accepted Phase 2 ADR set.
 | ADR | Title | Status | Date |
 |---|---|---|---|
 | [0001](0001-adopt-controlled-checkpointed-git-delivery.md) | Adopt controlled checkpointed Git delivery | Accepted | 2026-08-15 |
+| [0002](0002-adopt-deterministic-astro-toolchain.md) | Adopt deterministic Astro application toolchain | Proposed | 2026-08-16 |
 
 Use a new ADR for a material change to the implementation architecture,
 security boundary, deployment model, provider integration, or quality contract.
