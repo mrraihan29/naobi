@@ -1,6 +1,6 @@
 # Checkpoint 3.1A — Repository Governance
 
-**Status:** Implementation complete; checkpoint hold pending
+**Status:** Remote implementation complete; checkpoint hold pending
 **Owner:** Raihan
 **Implementation branch:** `phase3/3.1a-repository-governance`
 **Scope:** Repository bootstrap and governance; no application feature code
@@ -66,9 +66,10 @@ decision.
 
 ## 4. Target GitHub repository configuration
 
-The remote repository will be private. Its exact name and creation remain an
-external action pending Product Owner confirmation and authenticated GitHub CLI
-access.
+The remote repository is [`mrraihan29/naobi`](https://github.com/mrraihan29/naobi).
+GitHub API readback confirmed private visibility, `main` as the default branch,
+and the expected owner. The checkpoint branch is published through
+[draft PR #1](https://github.com/mrraihan29/naobi/pull/1).
 
 Configure a ruleset targeting the default branch with:
 
@@ -88,6 +89,16 @@ Configure a ruleset targeting the default branch with:
 Plan-dependent controls must be verified against the actual repository plan.
 Unavailable controls are documented as residual risk; they are never claimed as
 active.
+
+Ruleset `20892048` is active on the default branch. Effective-rules readback
+confirmed deletion protection, non-fast-forward protection, required linear
+history, pull-request enforcement, and review-thread resolution. Repository
+settings permit squash merge only and delete merged source branches.
+
+The required approval count is temporarily zero. A one-owner private repository
+cannot satisfy an independent approval requirement because an author cannot
+approve their own pull request. Increase the count to one and enable Code Owner
+review when a qualified collaborator is formally added.
 
 ## 5. Required-check architecture
 
@@ -157,15 +168,20 @@ published artifact must carry an explicit rights classification and license.
 
 ## 10. Exit and hold
 
+Completed external controls:
+
+- remote repository name confirmed as `mrraihan29/naobi`;
+- GitHub authentication and private remote creation succeeded;
+- default-branch ruleset applied and read back;
+- governance branch pushed and draft PR #1 opened; and
+- remote URLs, rule states, and check results recorded in evidence.
+
 The checkpoint may be locked only after:
 
-- the remote repository name is confirmed;
-- GitHub authentication and private remote creation succeed;
-- the default-branch ruleset is applied and read back;
-- the root security policy and reporting channel are approved;
-- the governance branch is pushed and reviewed through its pull request; and
-- the evidence record contains final remote URLs, rule states, check results,
-  and the Product Owner decision.
+- the root security policy and monitored reporting channel are approved;
+- Raihan reviews the draft pull request and records the Product Owner decision;
+  and
+- the accepted pull request is squash-merged without bypassing the ruleset.
 
-Until then, 3.1A is locally implementation-complete but externally pending, and
+Until then, 3.1A is implementation-complete but remains at its review hold, and
 3.1B remains locked.

@@ -1,7 +1,7 @@
 # Checkpoint 3.1A Local Verification Evidence
 
 **Verification date:** 2026-08-16
-**Checkpoint status:** Local implementation complete; external hold pending
+**Checkpoint status:** Remote implementation complete; review hold pending
 **Branch:** `phase3/3.1a-repository-governance`
 
 ## 1. Scope evidence
@@ -10,6 +10,8 @@
 |---|---|
 | Locked planning baseline | `e9bab4079022149e395f0d2a645e70cc633b5074` |
 | Governance implementation | `be143fb20c31b08cfc6d04a784625cd158df8049` |
+| Initial local evidence | `7764000d11f9de8539e3247e7a4a72f2f3abe095` |
+| Versioned ruleset | `be241e610a2dfd68b9b231931674f426a856e623` |
 | Product feature code introduced | None |
 | Dependency manifest or lockfile introduced | None; deferred to 3.1B |
 | Root security policy activated | No; exact preview remains approval-gated |
@@ -82,22 +84,38 @@ not a project or runtime dependency.
 
 ## 6. External hold items
 
-The following actions were intentionally not guessed or represented as done:
+### Completed remote evidence
 
-1. GitHub CLI authentication: `gh auth login --web` was started but not
-   completed within the controlled session; `gh auth status` remains logged out.
-2. Remote repository: exact repository name is not yet approved, so no private
-   remote was created and no local branch was pushed.
-3. GitHub ruleset: cannot be applied or read back until the remote exists.
-4. Pull request: cannot be opened until authentication and remote creation are
-   complete.
-5. Root `SECURITY.md`: requires approval of the exact preview and a monitored
+| Control | Readback result |
+|---|---|
+| Repository | [`mrraihan29/naobi`](https://github.com/mrraihan29/naobi) |
+| Visibility/default branch | Private; `main` |
+| Merge strategy | Squash enabled; merge commits and rebase merge disabled |
+| Branch cleanup | Delete branch on merge enabled |
+| Ruleset | `20892048`, `Protect main`, active |
+| Effective rules | deletion, non-fast-forward, linear history, pull request |
+| Bypass actors | None |
+| Checkpoint review | [Draft PR #1](https://github.com/mrraihan29/naobi/pull/1), open and mergeable |
+| Published branch | `phase3/3.1a-repository-governance` |
+
+The initial `main` push occurred before protection because GitHub requires a
+default branch before a branch-targeted ruleset can be created. The ruleset was
+activated and read back before the checkpoint branch was pushed.
+
+### Remaining hold items
+
+1. Root `SECURITY.md` requires approval of the exact preview and a monitored
    private reporting channel.
-6. GitHub-native issue-form validation and CODEOWNERS recognition: parser and
-   local structure passed, but native readback requires the remote repository.
+2. Draft PR #1 requires Product Owner review and an explicit checkpoint
+   decision.
+3. Required status checks will be attached only after stable workflow job names
+   exist in 3.1B; no empty or fictional check was declared.
+4. Approval count is zero while Raihan is the sole repository owner. Requiring
+   one approval would create an unsatisfiable self-review gate; increase it when
+   an independent reviewer is added.
 
 ## 7. Hold decision
 
-Checkpoint 3.1A is **locally implementation-complete** and **not locked**.
+Checkpoint 3.1A is **remote implementation-complete** and **not locked**.
 Checkpoint 3.1B remains prohibited until the external hold items are resolved,
 the remote evidence is appended, and Raihan records `ready to continue`.
