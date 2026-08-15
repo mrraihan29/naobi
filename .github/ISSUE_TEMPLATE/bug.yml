@@ -1,0 +1,57 @@
+name: Bug report
+description: Report a reproducible defect in NAOBI.
+title: "bug: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Do not include credentials, private data, or security exploit details.
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: What happened, and where?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Provide the smallest deterministic sequence and safe sample data.
+    validations:
+      required: true
+  - type: input
+    id: revision
+    attributes:
+      label: Revision or deployment
+      description: Commit SHA, release, or environment if known.
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, operating system, viewport, and relevant settings.
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Blocking
+        - Major
+        - Moderate
+        - Minor
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed secrets, client data, and sensitive security details.
+          required: true
