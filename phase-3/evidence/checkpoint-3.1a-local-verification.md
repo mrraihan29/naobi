@@ -1,7 +1,7 @@
 # Checkpoint 3.1A Local Verification Evidence
 
 **Verification date:** 2026-08-16
-**Checkpoint status:** Remote implementation complete; review hold pending
+**Checkpoint status:** Accepted for squash merge
 **Branch:** `phase3/3.1a-repository-governance`
 
 ## 1. Scope evidence
@@ -104,18 +104,15 @@ activated and read back before the checkpoint branch was pushed.
 
 ### Remaining hold items
 
-1. Root `SECURITY.md` requires approval of the exact preview and a monitored
-   private reporting channel.
-2. Draft PR #1 requires Product Owner review and an explicit checkpoint
-   decision.
-3. Required status checks will be attached only after stable workflow job names
+1. Required status checks will be attached only after stable workflow job names
    exist in 3.1B; no empty or fictional check was declared.
-4. Approval count is zero while Raihan is the sole repository owner. Requiring
+2. Approval count is zero while Raihan is the sole repository owner. Requiring
    one approval would create an unsatisfiable self-review gate; increase it when
    an independent reviewer is added.
 
 ## 7. Hold decision
 
-Checkpoint 3.1A is **remote implementation-complete** and **not locked**.
-Checkpoint 3.1B remains prohibited until the external hold items are resolved,
-the remote evidence is appended, and Raihan records `ready to continue`.
+Raihan approved the active security policy, temporary reporting channel, and
+recorded **`ready to continue`** on 2026-08-16. Checkpoint 3.1A is accepted for
+squash merge. Checkpoint 3.1B may begin only after the merge commit is read back
+from protected `main`.

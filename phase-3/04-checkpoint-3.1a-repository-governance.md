@@ -1,6 +1,6 @@
 # Checkpoint 3.1A — Repository Governance
 
-**Status:** Remote implementation complete; checkpoint hold pending
+**Status:** Accepted for squash merge — Product Owner ready to continue
 **Owner:** Raihan
 **Implementation branch:** `phase3/3.1a-repository-governance`
 **Scope:** Repository bootstrap and governance; no application feature code
@@ -155,9 +155,11 @@ The proposed root `SECURITY.md` is reproduced exactly in
 invariants, reporting expectations, severity context, exclusions, and response
 targets without publishing an unverified contact channel.
 
-The root policy is deliberately not activated until Raihan approves the exact
-text and chooses a monitored private reporting address or GitHub private
-vulnerability reporting.
+Raihan approved the exact policy and `mrraihan2002@gmail.com` as the temporary
+monitored private reporting channel on 2026-08-16. The active root
+[`SECURITY.md`](../SECURITY.md) now governs the repository. A future change to
+`security@naobi.dev` requires confirming that mailbox is operational before the
+policy is updated.
 
 ## 9. Licensing boundary
 
@@ -176,12 +178,14 @@ Completed external controls:
 - governance branch pushed and draft PR #1 opened; and
 - remote URLs, rule states, and check results recorded in evidence.
 
-The checkpoint may be locked only after:
+Completed hold decisions:
 
-- the root security policy and monitored reporting channel are approved;
-- Raihan reviews the draft pull request and records the Product Owner decision;
-  and
-- the accepted pull request is squash-merged without bypassing the ruleset.
+- root security policy and temporary monitored reporting channel approved; and
+- Raihan recorded `ready to continue` on 2026-08-16.
 
-Until then, 3.1A is implementation-complete but remains at its review hold, and
-3.1B remains locked.
+The checkpoint is locked after the accepted pull request is squash-merged
+without bypassing the ruleset and the resulting protected `main` revision is
+read back.
+
+The merge is the final mechanical closure step. After verified merge readback,
+3.1B may open from the resulting protected `main` revision.

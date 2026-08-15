@@ -39,6 +39,7 @@ $requiredFiles = @(
     'AGENTS.md',
     'CONTRIBUTING.md',
     'README.md',
+    'SECURITY.md',
     'phase-3/04-checkpoint-3.1a-repository-governance.md',
     'phase-3/security-policy-preview.md',
     'scripts/validate-governance.ps1'

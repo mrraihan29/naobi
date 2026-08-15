@@ -1,20 +1,9 @@
-# Security Policy Preview for Checkpoint 3.1A
-
-**Status:** Approved and activated on 2026-08-16
-**Target path after approval:** `/SECURITY.md`
-
-This file preserves the exact policy reviewed by the Product Owner before
-activation. Raihan approved `mrraihan2002@gmail.com` as the temporary monitored
-private reporting channel on 2026-08-16. The canonical active policy is now
-[`/SECURITY.md`](../SECURITY.md).
-
-```markdown
 # Security Policy
 
 ## Reporting a vulnerability
 
 Do not disclose suspected vulnerabilities through public issues, discussions,
-pull requests, or social media. Report them privately through
+pull requests, or social media. Report them privately to
 `mrraihan2002@gmail.com` and include:
 
 - the affected revision, route, component, or deployment;
@@ -87,11 +76,3 @@ security impact:
 
 This policy does not grant authorization to test third-party systems or to take
 actions prohibited by law or service terms.
-```
-
-## Approval checklist
-
-- [x] Replace the placeholder with a monitored private reporting channel.
-- [x] Confirm acknowledgement and triage targets are operationally realistic.
-- [x] Confirm the invariants match the implemented architecture at activation.
-- [x] Approve the exact text for creation at `/SECURITY.md`.
