@@ -38,6 +38,7 @@ Strict peer checking ultimately reported: `No peer dependency issues found`.
 | Control | Result |
 |---|---|
 | Exact direct pins | Present in `package.json` |
+| Exact-save enforcement | `saveExact: true` in `pnpm-workspace.yaml` |
 | Frozen lockfile install | Passed |
 | Publication cooldown | 1,440 minutes |
 | Optional peer auto-install | Disabled |
@@ -55,17 +56,17 @@ as universally permissive; release notices remain an OCI-delivery obligation.
 
 | Check | Result |
 |---|---|
-| Workflow policy | Passed: one workflow; full-SHA external actions |
+| Workflow policy | Passed: structural YAML validation, read-only permissions, immutable actions |
 | Prettier | Passed: all matched files |
 | ESLint | Passed: zero warnings |
-| Astro diagnostics | 7 files; 0 errors, 0 warnings, 0 hints |
-| Vitest | 1 file; 2 tests passed |
+| Astro diagnostics | 8 files; 0 errors, 0 warnings, 0 hints |
+| Vitest | 2 files; 6 tests passed |
 | Astro production build | Passed; `/index.html` prerendered |
 | Output mode | Static default with Node standalone adapter |
 | Session runtime | Explicitly disabled |
 | HTTP smoke | 200; expected `<h1>NAOBI</h1>` marker present |
 | Preview cleanup | Official stop command succeeded; no server remained |
-| Governance validator | To be rerun before commit and push |
+| Governance validator | Passed: 16 required files and 100 Markdown files |
 
 ## 5. Failures found and resolved
 
@@ -86,6 +87,15 @@ green result:
    port 4321. Its status and log were inspected, the HTTP test passed, and the
    server was stopped with `astro preview stop`. Final status confirmed no
    preview server remained.
+6. Security review found the initial permissions check accepted `write-all`
+   and job-level write overrides. The regex validator was replaced with a
+   structural YAML policy that permits only `read`, `none`, or `read-all`.
+7. Security review found mutable `docker://` tags bypassed immutable-action
+   enforcement. Docker actions now require a `sha256` digest, while external
+   actions and reusable workflows require a full 40-character commit SHA.
+8. Pnpm 11 ignores non-registry policy in `.npmrc`. The ineffective
+   `save-exact=true` file was removed and `saveExact: true` was placed in the
+   authoritative workspace configuration.
 
 ## 6. Privacy and secret boundary
 

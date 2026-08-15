@@ -1,11 +1,10 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateWorkflowPolicy } from './lib/workflow-policy.mjs';
 
 const repositoryRoot = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const workflowDirectory = join(repositoryRoot, '.github', 'workflows');
-const immutableReference = /^[a-f0-9]{40}$/u;
-const externalAction = /^\s*-?\s*uses:\s*([^@\s]+)@([^\s#]+)/gmu;
 
 const entries = await readdir(workflowDirectory, { withFileTypes: true });
 const workflowFiles = entries
@@ -21,27 +20,7 @@ const failures = [];
 for (const workflowFile of workflowFiles) {
   const workflow = await readFile(workflowFile, 'utf8');
   const workflowPath = relative(repositoryRoot, workflowFile).replaceAll('\\', '/');
-
-  if (!/^permissions:/mu.test(workflow)) {
-    failures.push(`${workflowPath}: explicit top-level permissions are required`);
-  }
-
-  if (/^\s*pull_request_target\s*:/mu.test(workflow)) {
-    failures.push(`${workflowPath}: pull_request_target is prohibited`);
-  }
-
-  for (const match of workflow.matchAll(externalAction)) {
-    const action = match[1];
-    const reference = match[2];
-
-    if (action?.startsWith('./') || action?.startsWith('docker://')) {
-      continue;
-    }
-
-    if (!reference || !immutableReference.test(reference)) {
-      failures.push(`${workflowPath}: ${action ?? 'unknown action'} must use a full commit SHA`);
-    }
-  }
+  failures.push(...validateWorkflowPolicy(workflow, workflowPath));
 }
 
 if (failures.length > 0) {

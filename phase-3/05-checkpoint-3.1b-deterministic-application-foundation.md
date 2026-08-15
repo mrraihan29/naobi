@@ -65,7 +65,7 @@ foundation was written. Material outcomes were:
 | `.node-version`, `.nvmrc` | Node 24.19.0 |
 | `package.json` | exact pnpm, engine, dependency, and command pins |
 | `pnpm-lock.yaml` | canonical dependency resolution |
-| `pnpm-workspace.yaml` | engine, peer, cooldown, and build-script policy |
+| `pnpm-workspace.yaml` | engine, exact-save, peer, cooldown, and build-script policy |
 | `astro.config.ts` | static default, Node adapter, React islands, no sessions |
 | `tsconfig.json` | Astro strictest plus defensive compiler flags |
 | `eslint.config.js` | JavaScript, TypeScript, and Astro lint baseline |
@@ -100,8 +100,10 @@ requested until the authorized operational checkpoint.
 7. production build.
 
 CI adds frozen-lock installation, high-severity production dependency audit,
-and full-history Gitleaks scanning. Workflow permissions are read-only, job
-timeouts are bounded, PR concurrency cancels superseded safe runs, checkout
+and full-history Gitleaks scanning. A structural YAML policy rejects write
+permissions, `pull_request_target`, mutable external action references, and
+Docker actions without a SHA-256 digest. Workflow permissions are read-only,
+job timeouts are bounded, PR concurrency cancels superseded safe runs, checkout
 credentials are not persisted, and third-party actions are pinned to full
 commit SHAs.
 

@@ -3,6 +3,7 @@ packages:
 
 engineStrict: true
 nodeVersion: 24.19.0
+saveExact: true
 minimumReleaseAge: 1440
 autoInstallPeers: false
 strictPeerDependencies: true
