@@ -1,0 +1,43 @@
+name: Change proposal
+description: Propose a scoped product, engineering, documentation, or operational change.
+title: "proposal: "
+labels:
+  - proposal
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: Describe the evidence-backed need, not only the preferred solution.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: State the observable result and who benefits.
+    validations:
+      required: true
+  - type: textarea
+    id: constraints
+    attributes:
+      label: Constraints and locked decisions
+      description: Identify affected requirements, ADRs, privacy boundaries, or checkpoint scope.
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance evidence
+      description: Define how the outcome can be verified.
+    validations:
+      required: true
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: Urgency
+      options:
+        - Backlog
+        - Next checkpoint candidate
+        - Current checkpoint blocker
+        - Production incident
+    validations:
+      required: true

@@ -23,7 +23,7 @@ and ADR-0009 through ADR-0013.
 | Gate | Outcome | Status |
 |---|---|---|
 | 3.0 — Preparation and capability baseline | Approved toolchain, source-of-truth map, implementation controls, coding-pitstop ledger, and evidence plan; no application feature code | Locked through Documents 01–03 and Phase 3 ADR-0001 |
-| 3.1 — Repository and toolchain foundation | Private repository, pinned local/CI runtime, Astro scaffold, dependency lock, code-quality controls, and environment schema | Not started |
+| 3.1 — Repository and toolchain foundation | Private repository, pinned local/CI runtime, Astro scaffold, dependency lock, code-quality controls, and environment schema | 3.1A accepted for merge; 3.1B opens after protected-main readback |
 | 3.2 — Operational truth validation | Verified VPS, Coolify, GitHub, domain, registry, provider, backup, and secret-boundary facts; staging/production design made executable | Not started |
 | 3.3 — First browser vertical slice | One Central OS path, one representative content route, terminal/visual equivalence, responsive behavior, Evidence Depth Rail, and HF-01–HF-12 evidence | Not started |
 | 3.4 — Foundation hardening and release-readiness handoff | Early security, accessibility, performance, content, visual, deployment, rollback, and recovery proof package | Not started |
@@ -101,6 +101,14 @@ Gate 3.0 is accepted through:
   coding-pitstop and Git delivery plan; and
 - [ADR-0001](adr/0001-adopt-controlled-checkpointed-git-delivery.md), the
   controlled delivery decision.
+
+Checkpoint 3.1A is governed by:
+
+- [Document 04](04-checkpoint-3.1a-repository-governance.md), the repository,
+  Git, GitHub, required-check, and Actions-security contract; and
+- [the security-policy preview](security-policy-preview.md), the exact proposed
+  root policy awaiting Product Owner approval and a verified private reporting
+  channel.
 
 **Next authorized checkpoint:** 3.1A — Repository governance. It may establish
 the private repository and its controls, but may not start application feature
