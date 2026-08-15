@@ -48,8 +48,9 @@ $requiredFiles = @(
 $requiredFiles | ForEach-Object { Test-RequiredFile -RelativePath $_ }
 
 $branch = (& git branch --show-current).Trim()
-if ($branch -ne 'phase3/3.1a-repository-governance') {
-    Add-Failure "Unexpected branch '$branch'; expected phase3/3.1a-repository-governance."
+$validCheckpointBranch = $branch -match '^phase3/[0-9]+\.[0-9]+[a-z]?-[a-z0-9-]+$'
+if ($branch -ne 'main' -and -not $validCheckpointBranch) {
+    Add-Failure "Unexpected branch '$branch'; expected main or a valid Phase 3 checkpoint branch."
 }
 
 $trackedAndCandidateFiles = @(& git ls-files --cached --others --exclude-standard)
