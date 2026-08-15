@@ -35,6 +35,7 @@ $requiredFiles = @(
     '.github/ISSUE_TEMPLATE/config.yml',
     '.github/ISSUE_TEMPLATE/bug.yml',
     '.github/ISSUE_TEMPLATE/change.yml',
+    '.github/rulesets/main.json',
     'AGENTS.md',
     'CONTRIBUTING.md',
     'README.md',
