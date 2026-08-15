@@ -7,8 +7,9 @@ portfolio.
 
 ## Repository status
 
-This private repository is in **Phase 3 — implementation**. Checkpoint 3.1A
-establishes repository governance only; application scaffolding begins in 3.1B.
+This private repository is in **Phase 3 — implementation**. Checkpoint 3.1A is
+locked. Checkpoint 3.1B establishes the deterministic application foundation;
+the product experience remains intentionally out of scope until later pitstops.
 
 The accepted decision hierarchy is:
 
@@ -33,8 +34,29 @@ earlier one only when the supersession is explicit and traceable.
 - A checkpoint does not unlock its successor until Raihan records the hold
   decision.
 
-See [`CONTRIBUTING.md`](CONTRIBUTING.md) and the
-[3.1A governance contract](phase-3/04-checkpoint-3.1a-repository-governance.md).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md), the
+[3.1A governance contract](phase-3/04-checkpoint-3.1a-repository-governance.md),
+and the [3.1B foundation contract](phase-3/05-checkpoint-3.1b-deterministic-application-foundation.md).
+
+## Local development
+
+Required versions are pinned rather than implied:
+
+- Node.js `24.19.0` LTS;
+- pnpm `11.22.0`;
+- Astro `7.2.2` with React `19.2.8` islands; and
+- TypeScript `6.0.3` until the lint ecosystem supports TypeScript 7.
+
+```shell
+pnpm install --frozen-lockfile
+pnpm verify
+pnpm dev
+```
+
+Copy `.env.example` only when local server configuration is needed. Never
+commit `.env` or real credentials. The root `package.json`, `.node-version`,
+`pnpm-workspace.yaml`, and `pnpm-lock.yaml` form the deterministic toolchain
+contract.
 
 ## Licensing and disclosure
 
@@ -45,6 +67,5 @@ explicit licenses after Raihan classifies them for publication.
 
 ## Security
 
-Do not report vulnerabilities through public issues. A root security policy is
-prepared as an approval-gated change in
-[`phase-3/security-policy-preview.md`](phase-3/security-policy-preview.md).
+Do not report vulnerabilities through public issues. Follow the active
+[`SECURITY.md`](SECURITY.md) policy and use its private reporting channel.

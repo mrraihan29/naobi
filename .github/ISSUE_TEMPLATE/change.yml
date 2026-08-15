@@ -1,6 +1,6 @@
 name: Change proposal
 description: Propose a scoped product, engineering, documentation, or operational change.
-title: "proposal: "
+title: 'proposal: '
 labels:
   - proposal
 body:

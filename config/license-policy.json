@@ -1,0 +1,26 @@
+{
+  "allowedLicenses": [
+    "Apache-2.0",
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    "BlueOak-1.0.0",
+    "CC-BY-4.0",
+    "CC0-1.0",
+    "ISC",
+    "MIT",
+    "MPL-2.0",
+    "Python-2.0"
+  ],
+  "reviewedExceptions": [
+    {
+      "packagePattern": "^@img/sharp-",
+      "license": "Apache-2.0 AND LGPL-3.0-or-later",
+      "rationale": "Platform binary distributed with Sharp; preserve applicable notices and LGPL obligations in deployable artifacts."
+    },
+    {
+      "packagePattern": "^@img/sharp-libvips-linux-x64$",
+      "license": "LGPL-3.0-or-later",
+      "rationale": "Linux x64 libvips binary observed in Ubuntu CI and used by Sharp; preserve LGPL notices, license text, and relinking obligations in deployable artifacts."
+    }
+  ]
+}
