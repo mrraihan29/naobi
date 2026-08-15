@@ -2,7 +2,7 @@
 
 **Verification date:** 2026-08-16
 **Branch:** `phase3/3.1b-astro-toolchain`
-**Status:** Local checks passed; remote CI and checkpoint review pending
+**Status:** Local and remote checks passed; checkpoint review pending
 
 ## 1. Runtime provenance
 
@@ -121,14 +121,32 @@ green result:
 - Source maps remain disabled for the production build.
 - CI uses no deployment or provider secret.
 
-## 7. Remaining remote evidence
+## 7. Remote verification evidence
 
-- draft PR #2 is published; its first run identified the two cross-platform
-  issues above and the focused corrections are awaiting rerun;
-- observe corrected `verify` and `secret-scan` jobs on GitHub Actions;
-- investigate any platform-specific CI difference;
-- add the stable passing job names to the protected-main ruleset;
-- read back effective rules; and
-- obtain Raihan's checkpoint decision.
+| Item | Verified result |
+|---|---|
+| Draft PR | [#2](https://github.com/mrraihan29/naobi/pull/2) |
+| Corrected workflow run | [31903038128](https://github.com/mrraihan29/naobi/actions/runs/31903038128) |
+| `secret-scan` | Passed in 7 seconds |
+| `verify` | Passed in 36 seconds |
+| Check provider | GitHub Actions application ID `15368` |
+| Protected-main ruleset | Active ruleset `20892048` |
+| Required contexts | `verify`, `secret-scan` |
+| Up-to-date branch required | Yes |
+| Ruleset readback | Passed; contexts, integration IDs, and strictness match the versioned declaration |
+| Write-capable collaborators | One: repository owner `mrraihan29` |
+
+The first PR run failed only on the two cross-platform issues retained in
+Section 5. Both were corrected without weakening the security boundaries; the
+next run passed. The remaining gate is Raihan's explicit checkpoint decision.
+
+Required checks are a strong accidental-change and ordinary pull-request gate,
+but GitHub binds them to a context name and provider rather than to immutable
+workflow contents. In the current solo-owner repository, there is no distinct
+write-capable collaborator who can exploit that limitation. Before granting
+`write`, `maintain`, or `admin` access to another account, governance must add
+an independent approval/CODEOWNERS control or a trusted required-workflow
+mechanism supported by the selected GitHub plan. This is a mandatory access
+expansion gate, not an accepted multi-user operating mode.
 
 Checkpoint 3.1C remains locked.

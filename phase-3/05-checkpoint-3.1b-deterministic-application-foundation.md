@@ -145,6 +145,13 @@ binary license obligations, and a workflow rule blocking delivery. Mitigations
 are exact pins, frozen installation, compatibility gates, executable policies,
 Dependabot, immutable action references, and version-controlled rulesets.
 
+The repository currently has one write-capable account: owner `mrraihan29`.
+Required checks are not a substitute for independent review after access
+expands because GitHub binds status requirements to context/provider rather
+than immutable workflow content. Granting another account `write`, `maintain`,
+or `admin` access therefore requires a prior governance checkpoint that adds
+independent approval/CODEOWNERS or a trusted required-workflow control.
+
 Rollback is a squash-commit revert. No database, deployment, content migration,
 or external provider state exists in this checkpoint.
 
