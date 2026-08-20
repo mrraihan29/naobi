@@ -2,9 +2,11 @@
 interface Props {
   title: string;
   description: string;
+  canonicalPath?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonicalPath } = Astro.props;
+const canonicalUrl = canonicalPath ? new URL(canonicalPath, Astro.site) : undefined;
 ---
 
 <!doctype html>
@@ -13,6 +15,7 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
     <title>{title}</title>
   </head>
   <body>

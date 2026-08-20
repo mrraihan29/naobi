@@ -1,0 +1,43 @@
+---
+import { render } from 'astro:content';
+
+import Document from '../../layouts/Document.astro';
+import {
+  getPublications,
+  publicationPath,
+  publicationSection,
+  publicationTitle,
+  type PublicationEntry,
+} from '../../lib/publications';
+
+export async function getStaticPaths() {
+  const publications = await getPublications();
+
+  return publications.map((entry) => ({
+    params: { section: publicationSection(entry), slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: PublicationEntry;
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<Document
+  canonicalPath={publicationPath(entry)}
+  description={entry.data.summary}
+  title={publicationTitle(entry)}
+>
+  <main>
+    <p>{entry.data.type === 'coming-soon' ? 'COMING SOON' : entry.data.type.toUpperCase()}</p>
+    <h1>{entry.data.title}</h1>
+    <p>{entry.data.summary}</p>
+    <article>
+      <Content />
+    </article>
+  </main>
+</Document>

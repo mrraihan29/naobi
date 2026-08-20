@@ -6,6 +6,7 @@
     "allowJs": false,
     "exactOptionalPropertyTypes": true,
     "noUncheckedIndexedAccess": true,
+    "resolveJsonModule": true,
     "verbatimModuleSyntax": true
   }
 }
